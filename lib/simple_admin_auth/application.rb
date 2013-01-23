@@ -53,7 +53,7 @@ __END__
 @@ login
 <html>
 <head><title>Admin Login</title>
-  <link rel="stylesheet" href="http://localhost:3000/auth/admin/bootstrap.css" />
+  <link rel="stylesheet" href="/auth/admin/bootstrap.css" />
   <style type="text/css">
     body {
       background-color: #F9F9F9;
