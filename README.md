@@ -12,15 +12,15 @@ Add this line to your application's Gemfile:
 
 Create an initialiser configuring your domain:
 
-  Rails.application.config.middleware.use SimpleAdminAuth::Builder do
-    provider :google_apps, :domain => 'yourdomain.com', :name => 'admin'
-  end
+    Rails.application.config.middleware.use SimpleAdminAuth::Builder do
+      provider :google_apps, :domain => 'yourdomain.com', :name => 'admin'
+    end
 
 Protect any routes that require authentication:
 
-  constraints SimpleAdminAuth::Authenticate do
-    mount MongoRequestLogger::Viewer, :at => "/log"
-  end
+    constraints SimpleAdminAuth::Authenticate do
+      mount MongoRequestLogger::Viewer, :at => "/log"
+    end
 
 An user may be logged out by linking to `/auth/admin/logout`, or by clearing `session[:admin_user]`.
 
