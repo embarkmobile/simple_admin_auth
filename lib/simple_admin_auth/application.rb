@@ -13,7 +13,7 @@ module SimpleAdminAuth
 
     get_or_post '/auth/admin/callback' do
       auth_hash = request.env['omniauth.auth']
-      puts auth_hash.inspect
+      
       session[:admin_user] = auth_hash['info']
 
       return_url = session[:admin_login_return_url] || '/'
