@@ -31,6 +31,7 @@ Sample config.ru:
     require 'rack/builder'
     require 'simple_admin_auth'
     require 'simple_admin_auth/rack'
+    require 'rack/cascade'
 
     app = Rack::Builder.new do
       use Rack::Session::Cookie, secret: 'change_me'
@@ -45,8 +46,10 @@ Sample config.ru:
       end
 
       map "/" do
-        use SimpleAdminAuth::Application
-        run YourMainSite.new
+        run Rack::Cascade.new [
+          YourMainSite.new,
+          SimpleAdminAuth::Application
+        ]
       end
     end
 

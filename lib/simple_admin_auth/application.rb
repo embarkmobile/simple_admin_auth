@@ -5,6 +5,7 @@ module SimpleAdminAuth
     enable :inline_templates
     set :raise_errors, true
     set :show_exceptions, false
+    set :logging, nil
 
     def self.get_or_post(path, opts={}, &block)
       get(path, opts, &block)
