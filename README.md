@@ -26,29 +26,31 @@ An user may be logged out by linking to `/auth/admin/logout`, or by clearing `se
 
 ## Usage with Sinatra/Rack-based apps
 
-  require 'rack/builder'
-  require 'simple_admin_auth'
-  require 'simple_admin_auth/rack'
+Sample config.ru:
 
-  app = Rack::Builder.new do
-    use Rack::Session::Cookie, secret: 'change_me'
+    require 'rack/builder'
+    require 'simple_admin_auth'
+    require 'simple_admin_auth/rack'
 
-    use SimpleAdminAuth::Builder do
-      provider :google_apps, :domain => 'yourdomain.com', :name => 'admin'
+    app = Rack::Builder.new do
+      use Rack::Session::Cookie, secret: 'change_me'
+
+      use SimpleAdminAuth::Builder do
+        provider :google_apps, :domain => 'yourdomain.com', :name => 'admin'
+      end
+
+      map "/your_protected_area" do
+        use SimpleAdminAuth::Rack
+        run YourProtectedArea.new
+      end
+
+      map "/" do
+        use SimpleAdminAuth::Application
+        run YourMainSite.new
+      end
     end
 
-    map "/your_protected_area" do
-      use SimpleAdminAuth::Rack
-      run YourProtectedArea.new
-    end
-
-    map "/" do
-      use SimpleAdminAuth::Application
-      run YourMainSite.new
-    end
-  end
-
-  run app
+    run app
 
 
 ## Contributing
