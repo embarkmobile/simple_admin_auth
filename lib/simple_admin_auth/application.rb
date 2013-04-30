@@ -12,7 +12,7 @@ module SimpleAdminAuth
       post(path, opts, &block)
     end
 
-    get_or_post '/auth/admin/callback' do
+    get_or_post '/admin/callback' do
       auth_hash = request.env['omniauth.auth']
 
       session[:admin_user] = auth_hash['info']
@@ -26,17 +26,21 @@ module SimpleAdminAuth
       end
     end
 
-    get '/auth/admin/logout' do
+    get '/failure' do
+      erb :failure
+    end
+
+    get '/admin/logout' do
       return_to = params[:return_to] || '/'
       session[:admin_user] = nil
       redirect return_to
     end
 
-    get '/auth/admin/login' do
+    get '/admin/login' do
       erb :login
     end
 
-    get '/auth/admin/bootstrap.css' do
+    get '/admin/bootstrap.css' do
       send_file File.join(File.dirname(__FILE__), '../../static/css/bootstrap.min.css')
     end
 
@@ -69,7 +73,31 @@ __END__
 <body>
 <div id="content">
   <p>You need to sign in to continue.</p>
-  <a class="btn btn-large" href="/auth/admin">Sign in via Google Apps</a>
+  <a class="btn btn-large" href="/auth/admin">Sign in</a>
+</div>
+
+</body>
+</html>
+
+@@ failure
+<html>
+<head><title>Admin Login</title>
+  <link rel="stylesheet" href="/auth/admin/bootstrap.css" />
+  <style type="text/css">
+    body {
+      background-color: #F9F9F9;
+    }
+
+    #content {
+      text-align: center;
+      margin: 200px auto;
+    }
+  </style>
+</head>
+<body>
+<div id="content">
+  <p>Authentication failed.</p>
+  <a class="btn btn-large" href="/auth/admin">Sign in</a>
 </div>
 
 </body>

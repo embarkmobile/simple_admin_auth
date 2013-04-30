@@ -1,5 +1,5 @@
 module SimpleAdminAuth
-  class Rack
+  class RequireAdmin
     def initialize(app, options={})
       @app = app
     end

@@ -1,3 +1,4 @@
+# TODO: this does not belong in this gem, but where should it be?
 require 'openid/fetchers'
 
 if OpenID.fetcher.ca_file.nil?

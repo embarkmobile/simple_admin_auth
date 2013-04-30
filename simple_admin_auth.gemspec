@@ -18,6 +18,5 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_dependency 'omniauth'
-  gem.add_dependency 'omniauth-google-apps'
   gem.add_dependency 'sinatra'
 end

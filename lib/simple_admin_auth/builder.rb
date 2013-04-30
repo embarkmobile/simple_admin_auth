@@ -1,9 +1,6 @@
 require 'omniauth'
 require 'omniauth/builder'
-require 'omniauth/strategies/google_apps'
 require 'simple_admin_auth/application'
-
-
 
 module SimpleAdminAuth
   class Builder < OmniAuth::Builder
@@ -11,7 +8,10 @@ module SimpleAdminAuth
       super(*args)
 
       use SimpleAdminAuth::LoginRedirect
-      use SimpleAdminAuth::Application
+
+      map '/auth' do
+        use SimpleAdminAuth::Application
+      end
     end
   end
 end
