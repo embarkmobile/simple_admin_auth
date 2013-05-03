@@ -100,6 +100,14 @@ Use this in the initializer:
 
 Rack/Sinatra apps may be adapted similarly.
 
+## Changelog
+
+### 0.1.0
+
+* Recommend OAuth2 instead of OpenID.
+* Add support for pure Rack/Sinatra applications.
+
+
 ## Contributing
 
 1. Fork it
