@@ -14,28 +14,21 @@ class Dummy < Rails::Application
     provider :developer, name: 'admin'
   end
 
-  module Actions
-    class << self
-      def index
-        lambda do |env|
-          [200, {'Content-Type' => 'text/html'}, ['Home']]
-        end
-      end
-
-      def protected
-        lambda do |env|
-          [200, {'Content-Type' => 'text/html'}, ['Admin']]
-        end
-      end
-    end
-  end
-
   routes.draw do
-    get '/'  => Dummy::Actions.index
+    get '/'  => 'dummy#index'
 
     constraints SimpleAdminAuth::Authenticate do
-      get '/protected/test'  => Dummy::Actions.protected
+      get '/protected/test' => 'dummy#protected'
     end
   end
 end
 
+class DummyController < ActionController::Base
+  def index
+    render text: 'Home'
+  end
+
+  def protected
+    render text: 'Admin'
+  end
+end
