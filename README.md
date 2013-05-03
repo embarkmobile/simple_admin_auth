@@ -100,6 +100,23 @@ Use this in the initializer:
 
 Rack/Sinatra apps may be adapted similarly.
 
+## Using in specific actions
+
+The recommended method is to enable the authentication for a group of routes in routes.rb, or as middleware for a
+specific Rack application. If however you need to use it for a specific page only, you can do the following:
+
+
+    if !request.session[:admin_user].nil?
+      true
+    else
+      request.session[:admin_login_return_url] = request.url
+      raise SimpleAdminAuth::RedirectException.new('/auth/admin/login')
+    end
+
+In a Sinatra app, use `session` instead of `request.session`.
+
+Note that this relies on internal behaviour of this gem, and might not be compatible with future versions.
+
 ## Changelog
 
 ### 0.1.0
