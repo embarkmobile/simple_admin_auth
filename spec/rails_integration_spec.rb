@@ -2,19 +2,21 @@ require 'spec_helper'
 require 'simple_admin_auth'
 require 'integration_examples'
 
-describe "Rails Integration" do
-  let(:app) do
-    #Rails.application.config.middleware.use SimpleAdminAuth::Builder do
-    #  provider :developer, name: 'admin'
-    #end
-    #
-    #puts Rails.application.config.middleware.inspect
+begin
+  require 'rails'
 
-    #Dummy::Application
-    Rails.application
+  # Configure the Rails application
+  ENV["RAILS_ENV"] = "test"
+  require 'dummy/application'
+
+
+  describe "Rails Integration" do
+    let(:app) do
+      Rails.application
+    end
+
+    include_examples 'integration'
   end
-
-
-  include_examples 'integration'
+rescue LoadError
+  # Cannot find Rails - skip these tests
 end
-

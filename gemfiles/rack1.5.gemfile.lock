@@ -1,0 +1,71 @@
+PATH
+  remote: /home/ralf/src/simple_admin_auth
+  specs:
+    simple_admin_auth (0.0.4)
+      omniauth
+      sinatra
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    daemons (1.1.9)
+    diff-lcs (1.2.4)
+    eventmachine (1.0.3)
+    faraday (0.8.7)
+      multipart-post (~> 1.1)
+    hashie (2.0.4)
+    httpauth (0.2.0)
+    jwt (0.1.8)
+      multi_json (>= 1.5)
+    multi_json (1.7.2)
+    multipart-post (1.2.0)
+    oauth2 (0.8.1)
+      faraday (~> 0.8)
+      httpauth (~> 0.1)
+      jwt (~> 0.1.4)
+      multi_json (~> 1.0)
+      rack (~> 1.2)
+    omniauth (1.1.4)
+      hashie (>= 1.2, < 3)
+      rack
+    omniauth-google-oauth2 (0.1.17)
+      omniauth (~> 1.0)
+      omniauth-oauth2
+    omniauth-oauth2 (1.1.1)
+      oauth2 (~> 0.8.0)
+      omniauth (~> 1.0)
+    rack (1.5.2)
+    rack-protection (1.5.0)
+      rack
+    rack-test (0.6.2)
+      rack (>= 1.0)
+    rake (10.0.4)
+    rspec (2.13.0)
+      rspec-core (~> 2.13.0)
+      rspec-expectations (~> 2.13.0)
+      rspec-mocks (~> 2.13.0)
+    rspec-core (2.13.1)
+    rspec-expectations (2.13.0)
+      diff-lcs (>= 1.1.3, < 2.0)
+    rspec-mocks (2.13.1)
+    sinatra (1.4.2)
+      rack (~> 1.5, >= 1.5.2)
+      rack-protection (~> 1.4)
+      tilt (~> 1.3, >= 1.3.4)
+    thin (1.5.1)
+      daemons (>= 1.0.9)
+      eventmachine (>= 0.12.6)
+      rack (>= 1.0.0)
+    tilt (1.4.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  omniauth-google-oauth2
+  rack (~> 1.5.0)
+  rack-test
+  rake
+  rspec
+  simple_admin_auth!
+  thin
