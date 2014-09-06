@@ -34,6 +34,10 @@ Create an `config/initializers/admin_auth.rb` configuring your domain:
               access_type: 'online', hd: 'embarkmobile.com', approval_prompt: 'auto'
     end
 
+If you would like to white list emails in your domain add the following:
+
+    SimpleAdminAuth::Configuration.email_white_list = ['admin@embarkmobile.com', 'john@embarkmobile.com']
+
 Protect any routes that require authentication:
 
     constraints SimpleAdminAuth::Authenticate do
