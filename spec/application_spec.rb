@@ -10,14 +10,14 @@ describe Application do
 
   it "should present a login screen" do
     get '/admin/login', nil, {}
-    last_response.should be_ok
-    last_response.body.should =~ /You need to sign in to continue\./
+    last_response.status.should eq(200)
+    last_response.body.should match(/You need to sign in to continue\./)
   end
 
   it "should render a failure page" do
     get '/failure', nil, {}
-    last_response.should be_ok
-    last_response.body.should =~ /Authentication failed\./
+    last_response.status.should eq(200)
+    last_response.body.should match(/Authentication failed\./)
   end
 
 end
