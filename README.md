@@ -31,8 +31,12 @@ Create an `config/initializers/admin_auth.rb` configuring your domain:
     Rails.application.config.middleware.use SimpleAdminAuth::Builder do
       # The name must be `admin`
       provider :google_oauth2, 'YOUR_KEY', 'YOUR_SECRET', name: 'admin',
-              access_type: 'online', hd: 'embarkmobile.com', approval_prompt: 'auto'
+              access_type: 'online', hd: 'example.com', approval_prompt: 'auto'
     end
+
+If you would like to white list emails in your domain add the following:
+
+    SimpleAdminAuth::Configuration.email_white_list = ['admin@example.com', 'john@example.com']
 
 Protect any routes that require authentication:
 

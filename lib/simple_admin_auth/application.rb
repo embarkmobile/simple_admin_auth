@@ -48,7 +48,7 @@ module SimpleAdminAuth
 
 
     def admin?
-      !session[:admin_user].nil?
+      SimpleAdminAuth::Authenticate.is_admin?(session)
     end
   end
 end
