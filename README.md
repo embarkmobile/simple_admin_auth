@@ -123,6 +123,10 @@ Note that this relies on internal behaviour of this gem, and might not be compat
 
 ## Changelog
 
+### 0.1.1
+
+* Allow whitelisting of emails. Contributed by @drubin.
+
 ### 0.1.0
 
 * Recommend OAuth2 instead of OpenID.
