@@ -16,9 +16,10 @@ module SimpleAdminAuth
     end
 
     def self.is_admin?(session)
+      admin_session = get_session_key(session, :admin_user)
       valid_admin = false
-      if !session[:admin_user].nil? && !session[:admin_user][:email].nil?
-        email = session[:admin_user][:email]
+      if !admin_session.nil? && !get_session_key(admin_session, :email).nil?
+        email = get_session_key(admin_session, :email)
         if !SimpleAdminAuth::Configuration.email_white_list.nil?
           if SimpleAdminAuth::Configuration.email_white_list.include?(email)
             valid_admin = true
@@ -28,6 +29,11 @@ module SimpleAdminAuth
         end
       end
       valid_admin
+    end
+
+    private 
+    def self.get_session_key(hash, symbol)
+      (hash[symbol] || hash[symbol.to_s])
     end
   end
 
