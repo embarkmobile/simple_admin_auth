@@ -26,12 +26,25 @@ describe SimpleAdminAuth::Authenticate do
     }
   end
 
+  let(:admin_string_sessions) do 
+    {
+      admin_user:{
+        'email'=> 'admin@example.com',
+        'name'=> 'dummy'
+      } 
+    }
+  end
+
   before do
     SimpleAdminAuth::Configuration.email_white_list = nil
   end
 
   it 'should authenticate if admin email is set ' do 
     auth.is_admin?(admin_session).should eq(true)
+  end
+
+  it 'should authenticate if admin email is set in a string key' do 
+    auth.is_admin?(admin_string_sessions).should eq(true)
   end
 
   it 'should not authenticate with empty session ' do 
