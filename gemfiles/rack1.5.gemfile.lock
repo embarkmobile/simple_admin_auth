@@ -1,7 +1,7 @@
 PATH
   remote: ../
   specs:
-    simple_admin_auth (0.1.1)
+    simple_admin_auth (0.1.2)
       omniauth
       sinatra
 
