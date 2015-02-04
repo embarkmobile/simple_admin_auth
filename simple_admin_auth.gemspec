@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
   gem.name          = "simple_admin_auth"
   gem.version       = SimpleAdminAuth::VERSION
   gem.authors       = ["Ralf Kistner"]
-  gem.email         = ["ralf@embarkmobile.com"]
+  gem.email         = ["ralf@journeyapps.com"]
   gem.description   = %q{Add simple admin authentication to any Rails application, using Google Apps for authentication.}
   gem.summary       = %q{Simple admin authentication using Google Apps}
   gem.homepage      = ""
