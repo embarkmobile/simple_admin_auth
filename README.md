@@ -5,6 +5,8 @@ Add simple admin authentication to any Rails application, using Google Apps for 
 Authentication is done purely on the Google Apps domain - no user model is used. Other providers such as GitHub or
 Facebook may also work, but are untested.
 
+Tested on Rails 3.2, 4.0, 4.1 and 4.2, as well as Rack 1.4, 1.5 and 1.6.
+
 ## Google Apps OAuth2
 
 We recommend using OAuth2 to authenticate with Google Apps. You need to sign up for an API key on the
@@ -17,7 +19,7 @@ Example:
     http://yourapp.com/auth/admin/callback
 
 
-## Usage with Rails 3.x
+## Usage with Rails 3 or 4
 
 Add these lines to your application's Gemfile:
 
