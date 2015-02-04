@@ -9,7 +9,8 @@ gemfile:
   - gemfiles/rails3.2.gemfile
   - gemfiles/rails4.0.gemfile
   - gemfiles/rails4.1.gemfile
+  - gemfiles/rails4.2.gemfile
 
 notifications:
   recipients:
-    - ralf@embarkmobile.com
+    - ralf@journeyapps.com

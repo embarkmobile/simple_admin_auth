@@ -1,5 +1,5 @@
 PATH
-  remote: .
+  remote: ../
   specs:
     simple_admin_auth (0.1.2)
       omniauth
