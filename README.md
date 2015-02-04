@@ -125,6 +125,10 @@ Note that this relies on internal behaviour of this gem, and might not be compat
 
 ## Changelog
 
+### 0.1.3
+
+* Rack 1.6 and Rails 4.2 compatibility.
+
 ### 0.1.2
 
 * Rails 4.1 compatibility, contributed by @drubin.
