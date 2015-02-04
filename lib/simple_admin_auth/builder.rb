@@ -9,8 +9,10 @@ module SimpleAdminAuth
 
       use SimpleAdminAuth::LoginRedirect
 
-      map '/auth' do
-        use SimpleAdminAuth::Application
+      use Rack::Builder do
+        map '/auth' do
+          use SimpleAdminAuth::Application
+        end
       end
     end
   end
