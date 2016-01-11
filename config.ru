@@ -18,12 +18,21 @@ app = Rack::Builder.new do
     # You need to create a key for your app on https://code.google.com/apis/console/
     provider :google_oauth2, ENV['GOOGLE_KEY'], ENV['GOOGLE_SECRET'], name: 'admin',
         access_type: 'online', hd: ENV['ADMIN_DOMAIN'], approval_prompt: 'auto'
+
+    SimpleAdminAuth::Configuration.required_hd = ENV['ADMIN_DOMAIN']
   end
 
   map "/admin" do
     # This middleware only allows signed-in users to access this app.
     use SimpleAdminAuth::RequireAdmin
-    run lambda { |env| [200, {'Content-Type' => 'text/html'}, ['<p>Welcome, you have been authenticated!</p> <p><a href="/auth/admin/logout">Sign Out</a></p>']] }
+    run lambda { |env|
+      body = <<-HTML
+        <p>Welcome, you have been authenticated!</p>
+        <p><a href="/auth/admin/logout">Sign Out</a></p>
+        <p>Details: #{Rack::Utils.escape_html(env['rack.session']['admin_user'].inspect)}</p>
+      HTML
+      [200, {'Content-Type' => 'text/html'}, [body]]
+    }
   end
 
   map "/" do
