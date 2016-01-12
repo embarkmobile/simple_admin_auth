@@ -17,7 +17,7 @@ module SimpleAdminAuth
 
       unless SimpleAdminAuth::Configuration.required_hd.nil?
         hd = nil
-        if auth_hash.extra.id_info
+        if auth_hash.extra && auth_hash.extra.id_info
           hd = auth_hash.extra.id_info.hd
         end
 
