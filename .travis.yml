@@ -1,8 +1,8 @@
 language: ruby
+sudo: false
 script: "bundle exec rspec"
-
 rvm:
-  - 2.1.2
+  - 2.3.0
 
 gemfile:
   - gemfiles/rack1.5.gemfile
