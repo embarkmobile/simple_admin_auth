@@ -66,6 +66,10 @@ Sample config.ru:
         # The name must be `admin`.
         provider :google_oauth2, 'YOUR_KEY (client id)', 'YOUR_SECRET', name: 'admin',
             access_type: 'online', hd: 'yourdomain.com', approval_prompt: 'auto'
+
+        # IMPORTANT: To restrict logins to your domain, you have to configure the
+        # required_hd. The :hd parameter for the provider is only a suggestion.
+        SimpleAdminAuth::Configuration.required_hd = 'yourdomain.com'
       end
 
 
