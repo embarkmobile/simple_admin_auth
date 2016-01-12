@@ -40,7 +40,7 @@ GEM
     daemons (1.1.9)
     diff-lcs (1.2.4)
     erubis (2.7.0)
-    eventmachine (1.0.3)
+    eventmachine (1.0.8)
     faraday (0.8.7)
       multipart-post (~> 1.1)
     hashie (2.0.4)
@@ -48,7 +48,7 @@ GEM
     httpauth (0.2.0)
     i18n (0.6.1)
     journey (1.0.4)
-    json (1.7.7)
+    json (1.8.3)
     jwt (0.1.8)
       multi_json (>= 1.5)
     mail (2.5.3)
@@ -140,3 +140,6 @@ DEPENDENCIES
   rspec
   simple_admin_auth!
   thin
+
+BUNDLED WITH
+   1.10.6
