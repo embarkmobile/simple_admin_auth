@@ -34,6 +34,10 @@ Create an `config/initializers/admin_auth.rb` configuring your domain:
       # The name must be `admin`
       provider :google_oauth2, 'YOUR_KEY', 'YOUR_SECRET', name: 'admin',
               access_type: 'online', hd: 'example.com', approval_prompt: 'auto'
+
+      # IMPORTANT: To restrict logins to your domain, you have to configure the
+      # required_hd. The :hd parameter for the provider is only a suggestion.
+      SimpleAdminAuth::Configuration.required_hd = 'example.com'
     end
 
 If you would like to white list emails in your domain add the following:
