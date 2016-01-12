@@ -87,4 +87,24 @@ shared_examples "integration" do
     last_request.url.should =~ /\/protected\/test$/
     last_response.should be_ok
   end
+
+  it "should fail when required hd is wrong" do
+    # email matches, but the returnd hd doesn't.
+    SimpleAdminAuth::Configuration.required_hd = 'bar.com'
+    OmniAuth.config.add_mock(:admin, {:uid => '12345', info: {email: 'foo@bar.com'}, extra: {id_info: {hd: 'example.org'}}})
+
+    get '/protected/test'
+    # Redirect to login page
+    follow_redirect!
+
+    # Click the login button
+    get '/auth/admin'
+    last_response.status.should == 302
+    follow_redirect!
+
+    # Mock strategy immediately redirects to the callback
+    last_request.url.should =~ /auth\/admin\/callback$/
+    last_response.status.should == 401
+  end
+
 end
