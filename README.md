@@ -133,6 +133,10 @@ Note that this relies on internal behaviour of this gem, and might not be compat
 
 ## Changelog
 
+### 0.1.4
+
+* Security fix: Add option to validate hosted domain returned by Google.
+
 ### 0.1.3
 
 * Rack 1.6 and Rails 4.2 compatibility.
