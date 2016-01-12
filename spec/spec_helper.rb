@@ -12,5 +12,4 @@ RSpec.configure do |conf|
   end
 end
 
-OmniAuth.config.add_mock(:admin, {:uid => '12345', info:{ email: 'foo@bar.com'}})
 OmniAuth.config.test_mode = true

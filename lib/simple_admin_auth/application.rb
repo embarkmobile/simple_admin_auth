@@ -15,6 +15,20 @@ module SimpleAdminAuth
     get_or_post '/admin/callback' do
       auth_hash = request.env['omniauth.auth']
 
+      unless SimpleAdminAuth::Configuration.required_hd.nil?
+        hd = nil
+        if auth_hash.extra && auth_hash.extra.id_info
+          hd = auth_hash.extra.id_info.hd
+        end
+
+        if hd != SimpleAdminAuth::Configuration.required_hd
+          # Hosted domain doesn't match
+          throw(:halt, [401, "Not authorized\n"])
+        end
+
+      end
+
+
       session[:admin_user] = auth_hash['info']
 
       return_url = session[:admin_login_return_url] || '/'

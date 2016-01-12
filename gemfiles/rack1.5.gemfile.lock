@@ -10,7 +10,7 @@ GEM
   specs:
     daemons (1.1.9)
     diff-lcs (1.2.4)
-    eventmachine (1.0.3)
+    eventmachine (1.0.8)
     faraday (0.8.7)
       multipart-post (~> 1.1)
     hashie (2.0.4)
@@ -69,3 +69,6 @@ DEPENDENCIES
   rspec
   simple_admin_auth!
   thin
+
+BUNDLED WITH
+   1.10.6
