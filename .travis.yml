@@ -2,14 +2,12 @@ language: ruby
 sudo: false
 script: "bundle exec rspec"
 rvm:
-  - 2.2.4
+  - 2.4.1
 
 gemfile:
   - gemfiles/rack1.5.gemfile
   - gemfiles/rack1.6.gemfile
   - gemfiles/rails3.2.gemfile
-  - gemfiles/rails4.0.gemfile
-  - gemfiles/rails4.1.gemfile
   - gemfiles/rails4.2.gemfile
 
 notifications:
